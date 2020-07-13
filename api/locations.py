@@ -22,3 +22,4 @@ LOCATION_CHOICE = [
     (CH8, LOC8),
     (CH9, LOC9),
     (CH10, LOC10)
+]
