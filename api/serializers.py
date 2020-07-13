@@ -11,7 +11,7 @@ class RoomSerializer(serializers.ModelSerializer):
 class RoomPriceSerializer(serializers.ModelSerializer):
     class Meta:
         model = RoomPrice
-        fields = ['room_name', 'price']
+        fields = ['room', 'price']
 
 
 class SampleDataSerializer(serializers.ModelSerializer):
