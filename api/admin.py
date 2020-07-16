@@ -11,7 +11,7 @@ class RoomPriceAdmin(admin.ModelAdmin):
 
 
 class SampleDataAdmin(admin.ModelAdmin):
-    list_display = ['city', 'sample_img']
+    list_display = ['keyword', 'sample_img']
 
 
 class CourseAdmin(admin.ModelAdmin):
