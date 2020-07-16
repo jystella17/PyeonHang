@@ -113,12 +113,13 @@ USE_TZ = True
 DATABASES = secrets['DB_SETTINGS']
 
 STATIC_URL = '/static/'
+'''
 STATIC_ROOT = '/home/ubuntu/srv/PyeonHang/static'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static')
 )
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+'''
 MEDIA_URL = '/sample/'
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'sample')
