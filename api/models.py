@@ -101,8 +101,10 @@ class CoursePrice(models.Model):
 
 
 class Payment(models.Model):
+    '''
     def __str__(self):
         return str(int(self.room_price.price) + int(self.activity_price.activity) + 5000)
+        '''
 
     room_price = models.ForeignKey(RoomPrice, null=True, blank=True, max_length=30, on_delete=models.CASCADE)
     activity_price = models.ForeignKey(CoursePrice, max_length=30, on_delete=models.CASCADE)
