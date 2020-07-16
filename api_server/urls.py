@@ -11,7 +11,6 @@ from drf_yasg import openapi
 schema_url_patterns = [
     path('api/', include('api.urls'))
 ]
-
 schema_view = get_schema_view(
     openapi.Info(
         title='Snippets API',
