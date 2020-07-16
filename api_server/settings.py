@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '65*nmpb_pr+$(3+9&f2dzwlj-nu&s4npwh9p7+=7rr@5xm_wn4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['ec2-13-125-242-210.ap-northeast-2.compute.amazonaws.com']
 ALLOWED_HOSTS = ['ec2-52-79-228-174.ap-northeast-2.compute.amazonaws.com']
@@ -113,7 +113,7 @@ USE_TZ = True
 DATABASES = secrets['DB_SETTINGS']
 
 STATIC_URL = '/static/'
-'''
+
 STATIC_ROOT = '/home/ubuntu/srv/PyeonHang/static'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static')
@@ -127,4 +127,4 @@ MEDIA_ROOT = (
 
 
 CORS_ORIGIN_ALLOW_ALL = True
-'''
+
