@@ -25,9 +25,9 @@ class RoomPrice(models.Model):
 
 class SampleData(models.Model):
     def __str__(self):
-        return self.city
+        return self.keyword
 
-    city = models.CharField(max_length=20, choices=LOCATION_CHOICE)
+    keyword = models.CharField(max_length=20, choices=LOCATION_CHOICE)
     sample_img = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
 
 
