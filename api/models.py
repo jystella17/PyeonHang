@@ -6,7 +6,7 @@ from .partner import PARTNER_CHOICE
 
 class Rooms(models.Model):
     def __str__(self):
-        return "%s (%s)" % (self.title, self.location)
+        return self.title
 
     location = models.CharField(max_length=30, choices=LOCATION_CHOICE)
     title = models.CharField(max_length=50)
