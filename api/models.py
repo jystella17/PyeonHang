@@ -28,7 +28,7 @@ class SampleData(models.Model):
         return self.keyword
 
     keyword = models.CharField(max_length=20, choices=LOCATION_CHOICE)
-    sample_img = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    sample_img = models.ImageField(blank=True)
 
 
 class Course(models.Model):
@@ -40,62 +40,62 @@ class Course(models.Model):
     room_name = models.ForeignKey(Rooms, on_delete=models.CASCADE)
     room_detail = models.CharField(max_length=50)
     room_hash = models.CharField(max_length=50)
-    room_img1 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
-    room_img2 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
-    room_img3 = models.ImageField(blank=True, upload_to='sample/', default='sample/default2.jpg')
+    room_img1 = models.ImageField(blank=True)
+    room_img2 = models.ImageField(blank=True)
+    room_img3 = models.ImageField(blank=True)
 
     meal_name1 = models.CharField(max_length=20)
     meal_detail1 = models.CharField(max_length=50)
     meal_hash1 = models.CharField(max_length=50)
     meal_price1 = models.CharField(max_length=50)
-    meal_img1 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    meal_img1 = models.ImageField(blank=True)
 
     meal_name2 = models.CharField(max_length=20)
     meal_detail2 = models.CharField(max_length=50)
     meal_hash2 = models.CharField(max_length=50)
     meal_price2 = models.CharField(max_length=50)
-    meal_img2 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    meal_img2 = models.ImageField(blank=True)
 
     meal_name3 = models.CharField(max_length=20)
     meal_detail3 = models.CharField(max_length=50)
     meal_hash3 = models.CharField(max_length=50)
     meal_price3 = models.CharField(max_length=50)
-    meal_img3 = models.ImageField(blank=True, upload_to='sample/', default='sample/default2.jpg')
+    meal_img3 = models.ImageField(blank=True)
 
     meal_name4 = models.CharField(max_length=20)
     meal_detail4= models.CharField(max_length=50)
     meal_hash4 = models.CharField(max_length=50)
     meal_price4 = models.CharField(max_length=50)
-    meal_img4 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    meal_img4 = models.ImageField(blank=True)
 
     meal_name5 = models.CharField(max_length=20)
     meal_detail5 = models.CharField(max_length=50)
     meal_hash5 = models.CharField(max_length=50)
     meal_price5 = models.CharField(max_length=50)
-    meal_img5 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    meal_img5 = models.ImageField(blank=True)
 
     meal_name6 = models.CharField(max_length=20)
     meal_detail6 = models.CharField(max_length=50)
     meal_hash6 = models.CharField(max_length=50)
     meal_price6 = models.CharField(max_length=50)
-    meal_img6 = models.ImageField(blank=True, upload_to='sample/', default='sample/default2.jpg')
+    meal_img6 = models.ImageField(blank=True)
 
     act_name1 = models.CharField(blank=True, max_length=20)
     act_detail1 = models.CharField(blank=True, max_length=50)
     act_hash1 = models.CharField(blank=True, max_length=50)
-    act_img1 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    act_img1 = models.ImageField(blank=True)
 
     act_name2 = models.CharField(blank=True, max_length=20)
     act_detail2 = models.CharField(blank=True, max_length=50)
     act_hash2 = models.CharField(blank=True, max_length=50)
-    act_img2 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    act_img2 = models.ImageField(blank=True)
 
     act_name3 = models.CharField(blank=True, max_length=20)
     act_detail3 = models.CharField(blank=True, max_length=50)
     act_hash3 = models.CharField(blank=True, max_length=50)
-    act_img3 = models.ImageField(blank=True, upload_to='sample/', default='sample/default2.jpg')
+    act_img3 = models.ImageField(blank=True)
 
-    result_img = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
+    result_img = models.ImageField(blank=True)
 
 
 class CoursePrice(models.Model):
