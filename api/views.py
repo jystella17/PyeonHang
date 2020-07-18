@@ -26,13 +26,13 @@ class IsNotAnonymous(permissions.BasePermission):
 class RoomViewSet(viewsets.ModelViewSet):
     queryset = Rooms.objects.all()
     serializer_class = RoomSerializer
-    permission_classes = (IsNotAnonymous,)
+    permission_classes = (IsSuperUserOrReadOnly,)
 
 
 class RoomPriceViewSet(viewsets.ModelViewSet):
     queryset = RoomPrice.objects.all()
     serializer_class = RoomPriceSerializer
-    permission_classes = (IsNotAnonymous,)
+    permission_classes = (IsSuperUserOrReadOnly,)
 
 
 class SampleDataViewSet(viewsets.ModelViewSet):
@@ -46,7 +46,6 @@ class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     permission_classes = (IsSuperUserOrReadOnly,)
 
-    '''
     @action(methods=['get'], detail=False, url_path='recommend', url_name='recommend')
     def random_course(self, request, *args, **kwargs):
         loc = ['Gangneung', 'Sokcho', 'Seoul', 'Yeosu', 'Jeonju', 'Jeju', 'Ulleungdo', 'Namhae', 'Tongyeong', 'Namwon']
@@ -54,7 +53,6 @@ class CourseViewSet(viewsets.ModelViewSet):
         d = Course.objects.filter(city=rand).values()
         data = list(d)
         return JsonResponse(data)
-    '''
 
 
 class CoursePriceViewSet(viewsets.ModelViewSet):
@@ -72,4 +70,3 @@ class PaymentViewSet(viewsets.ModelViewSet):
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
-    permission_classes = (IsSuperUserOrReadOnly,)
