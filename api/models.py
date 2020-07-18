@@ -47,31 +47,37 @@ class Course(models.Model):
     meal_name1 = models.CharField(max_length=20)
     meal_detail1 = models.CharField(max_length=50)
     meal_hash1 = models.CharField(max_length=50)
+    meal_price1 = models.CharField(max_length=50)
     meal_img1 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
 
     meal_name2 = models.CharField(max_length=20)
     meal_detail2 = models.CharField(max_length=50)
     meal_hash2 = models.CharField(max_length=50)
+    meal_price2 = models.CharField(max_length=50)
     meal_img2 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
 
     meal_name3 = models.CharField(max_length=20)
     meal_detail3 = models.CharField(max_length=50)
     meal_hash3 = models.CharField(max_length=50)
+    meal_price3 = models.CharField(max_length=50)
     meal_img3 = models.ImageField(blank=True, upload_to='sample/', default='sample/default2.jpg')
 
     meal_name4 = models.CharField(max_length=20)
     meal_detail4= models.CharField(max_length=50)
     meal_hash4 = models.CharField(max_length=50)
+    meal_price4 = models.CharField(max_length=50)
     meal_img4 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
 
     meal_name5 = models.CharField(max_length=20)
     meal_detail5 = models.CharField(max_length=50)
     meal_hash5 = models.CharField(max_length=50)
+    meal_price5 = models.CharField(max_length=50)
     meal_img5 = models.ImageField(blank=True, upload_to='sample/', default='sample/default1.jpg')
 
     meal_name6 = models.CharField(max_length=20)
     meal_detail6 = models.CharField(max_length=50)
     meal_hash6 = models.CharField(max_length=50)
+    meal_price6 = models.CharField(max_length=50)
     meal_img6 = models.ImageField(blank=True, upload_to='sample/', default='sample/default2.jpg')
 
     act_name1 = models.CharField(blank=True, max_length=20)
