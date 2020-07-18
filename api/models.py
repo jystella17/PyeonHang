@@ -27,7 +27,7 @@ class SampleData(models.Model):
     def __str__(self):
         return self.keyword
 
-    keyword = models.CharField(max_length=20, choices=LOCATION_CHOICE)
+    keyword = models.CharField(max_length=20, choices=LOCATION_CHOICE, null=True)
     sample_img = models.ImageField(blank=True)
 
 
