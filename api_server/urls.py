@@ -38,7 +38,9 @@ if settings.DEBUG:
         re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc')
     ]
 
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+'''
 urlpatterns += url(r'^media/(?P<path>.\*)$', serve, {
     'document_root': settings.MEDIA_ROOT,
 })
+'''
