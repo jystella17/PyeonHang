@@ -37,9 +37,10 @@ class Course(models.Model):
 
     city = models.CharField(max_length=10, choices=LOCATION_CHOICE)
     partner = models.CharField(max_length=10, choices=PARTNER_CHOICE)
-    room_name = models.ForeignKey(Rooms, on_delete=models.CASCADE)
+    room_name = models.CharField(max_length=20, null=True)
     room_detail = models.CharField(max_length=50)
     room_hash = models.CharField(max_length=50)
+    room_price = models.BigIntegerField(null=True)
     room_img1 = models.ImageField(blank=True)
     room_img2 = models.ImageField(blank=True)
     room_img3 = models.ImageField(blank=True)
@@ -83,16 +84,19 @@ class Course(models.Model):
     act_name1 = models.CharField(blank=True, max_length=20)
     act_detail1 = models.CharField(blank=True, max_length=50)
     act_hash1 = models.CharField(blank=True, max_length=50)
+    act_price1 = models.BigIntegerField(null=True)
     act_img1 = models.ImageField(blank=True)
 
     act_name2 = models.CharField(blank=True, max_length=20)
     act_detail2 = models.CharField(blank=True, max_length=50)
     act_hash2 = models.CharField(blank=True, max_length=50)
+    act_price2 = models.BigIntegerField(null=True)
     act_img2 = models.ImageField(blank=True)
 
     act_name3 = models.CharField(blank=True, max_length=20)
     act_detail3 = models.CharField(blank=True, max_length=50)
     act_hash3 = models.CharField(blank=True, max_length=50)
+    act_price3 = models.BigIntegerField(null=True)
     act_img3 = models.ImageField(blank=True)
 
     result_img = models.ImageField(blank=True)
