@@ -1,1 +1,15 @@
+[Unit]
+Description=uWSGI service
+After=syslog.target
 
+[Service]
+ExecStart=/home/ubuntu/.pyenv/versions/3.6.2/envs/uwsgi-env/bin/uwsgi -i /srv/PyeonHang/.config/uwsgi/api.ini
+
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
