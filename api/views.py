@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, get_object_or_404
+from rest_framework.response import Response
 from api.serializers import *
-from rest_framework import viewsets, status, permissions
+from api.models import User
+from rest_framework import viewsets, status, permissions, generics
 from rest_framework.decorators import action
-from django_filters.rest_framework import DjangoFilterBackend, FilterSet, filters
 import random
 
 
@@ -23,50 +23,45 @@ class IsNotAnonymous(permissions.BasePermission):
             return False
 
 
-class RoomViewSet(viewsets.ModelViewSet):
-    queryset = Rooms.objects.all()
-    serializer_class = RoomSerializer
-    permission_classes = (IsSuperUserOrReadOnly,)
-
-
-class RoomPriceViewSet(viewsets.ModelViewSet):
-    queryset = RoomPrice.objects.all()
-    serializer_class = RoomPriceSerializer
-    permission_classes = (IsSuperUserOrReadOnly,)
-
-
-class SampleDataViewSet(viewsets.ModelViewSet):
-    queryset = SampleData.objects.all()
-    serializer_class = SampleDataSerializer
-    permission_classes = (IsSuperUserOrReadOnly,)
-
-
-class CourseViewSet(viewsets.ModelViewSet):
+class CourseDetail(generics.GenericAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes = (IsSuperUserOrReadOnly,)
+    # permission_classes = (IsSuperUserOrReadOnly,)
 
-    @action(methods=['get'], detail=False, url_path='recommend', url_name='recommend')
-    def random_course(self, request, *args, **kwargs):
-        loc = ['Gangneung', 'Sokcho', 'Seoul', 'Yeosu', 'Jeonju', 'Jeju', 'Ulleungdo', 'Namhae', 'Tongyeong', 'Namwon']
+    def get(self, request, id, *args, **kwargs):
+        course_id = get_object_or_404(Course, pk=id)
+        detail = Course.objects.filter(id=course_id).values()
+
+        return Response({'detail': detail}, status=status.HTTP_200_OK)
+
+    def create(self, request, *args, **kwargs):
+        user = get_object_or_404(User, )
+        course = Course()
+        serializer = self.get_serializer(data=request.data, **kwargs)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class RandomCourse(generics.GenericAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    # permission_classes = (IsSuperUserOrReadOnly,)
+
+    @staticmethod
+    def get(request, partner, *args, **kwargs):
+        print(partner)
+        loc = ['강릉', '속초', '서울', '여수', '전주', '전주', '울릉도', '남해', '통영', '냠원']
         rand = random.choice(loc)
-        d = Course.objects.filter(city=rand).values()
-        data = list(d)
-        return JsonResponse(data)
+        random_course = Course.objects.filter(city=rand).filter(partner=partner).values()
+
+        return Response({'course': random_course}, status=status.HTTP_200_OK)
 
 
-class CoursePriceViewSet(viewsets.ModelViewSet):
-    queryset = CoursePrice.objects.all()
-    serializer_class = CoursePriceSerializer
-    permission_classes = (IsSuperUserOrReadOnly,)
-
-
-class PaymentViewSet(viewsets.ModelViewSet):
-    queryset = Payment.objects.all()
-    serializer_class = PaymentSerializer
-    permission_classes = (IsSuperUserOrReadOnly,)
-
-
-class ReservationViewSet(viewsets.ModelViewSet):
+class ReservationView(generics.GenericAPIView):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
+
+    def post(self, request, *args, **kwargs):
+        return Response()
