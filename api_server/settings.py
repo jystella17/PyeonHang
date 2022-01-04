@@ -16,7 +16,6 @@ import json
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -81,8 +80,8 @@ WSGI_APPLICATION = 'api_server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-with open(os.path.join(BASE_DIR, 'secrets.json'), 'rb') as secret_file:
+SECRET_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(SECRET_BASE_DIR, 'secrets.json'), 'rb') as secret_file:
     secrets = json.load(secret_file)
 
 
@@ -134,10 +133,7 @@ STATICFILES_DIRS = (
 '''
 
 MEDIA_URL = '/sample/'
-# MEDIA_ROOT = '/home/ubuntu/srv/PyeonHang/sample'
-MEDIA_ROOT = (
-    os.path.join(BASE_DIR, 'sample')
-)
+MEDIA_ROOT = os.path.join(BASE_DIR+'/sample', 'sample')
 
 # 배포시 allow methods 변경
 CORS_ORIGIN_ALLOW_ALL=True
