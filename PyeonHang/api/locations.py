@@ -9,7 +9,7 @@ CH6 = '제주';  LOC6 = 'Jeju'
 CH7 = '울릉도';  LOC7 = 'Ulleungdo'
 CH8 = '남해';  LOC8 = 'Namhae'
 CH9 = '통영';  LOC9 = 'Tongyeong'
-CH10 = '냠원';  LOC10 = 'Namwon'
+CH10 = '남원';  LOC10 = 'Namwon'
 
 LOCATION_CHOICE = [
     (CH1, LOC1),
