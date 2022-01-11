@@ -1,7 +1,7 @@
 import os
 from .base import *
 
-DEBUG = TRUE
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -10,8 +10,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "ph2020",
         "USER": "root",
-        "PASSWORD": "theo93",
-        "HOST" : "localhost",
+        "PASSWORD": "password",
+        "HOST": "localhost",
         "PORT": "3306"
     }
 }

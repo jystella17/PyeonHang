@@ -7,7 +7,7 @@ class UserAdmin(admin.ModelAdmin):
 
 
 class RoomAdmin(admin.ModelAdmin):
-    list_display = ['location', 'title', 'type', 'price', 'contact', 'is_booked']
+    list_display = ['location', 'title', 'type', 'price', 'contact']
 
 
 class CourseAdmin(admin.ModelAdmin):
@@ -25,7 +25,12 @@ class ReservationAdmin(admin.ModelAdmin):
     list_display = ['username', 'phone', 'email', 'res_course', 'date', 'payment', 'booked_at']
 
 
+class RoomReservationAdmin(admin.ModelAdmin):
+    list_display = ['room', 'booked_by', 'booked_date']
+
+
 admin.site.register(User, UserAdmin)
 admin.site.register(Rooms, RoomAdmin)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Reservation, ReservationAdmin)
+admin.site.register(RoomReservation, RoomReservationAdmin)

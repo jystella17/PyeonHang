@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['*', 'ec2-52-79-228-174.ap-northeast-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['*', 'ec2-52-79-228-174.ap-northeast-2.compute.amazonaws.com']
 
 # Application definition
 
@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'api_server.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'secrets.json'), 'rb') as secret_file:
+with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'secrets.json'), 'rb') as secret_file:
     secrets = json.load(secret_file)
 
-SECRET_KEY = secrets['SECRET_KEY']
+SECRET_KEY = '65*nmpb_pr+$(3+9&f2dzwlj-nu&s4npwh9p7+=7rr@5xm_wn4'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

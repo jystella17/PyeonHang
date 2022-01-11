@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
-from django.conf.urls import url
 from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -26,7 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('course/<int:id>', views.CourseDetail.as_view(), name='course-detail'),
     path('course/recommend/<str:partner>', views.RandomCourse.as_view(), name='course-recommend'),
-    path('course/upload/new', views.CourseDetail.create, name='upload-course')
+    path('course/upload/new', views.CourseRegister.as_view(), name='upload-course'),
+    path('reserve/course', views.MakeReservation.as_view(), name='reserve-course'),
+    path('reserve/reserved-list', views.ReservationList.as_view(), name='reserved-list')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
@@ -37,4 +38,3 @@ if settings.DEBUG:
         re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc')
     ]
 
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
